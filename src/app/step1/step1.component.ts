@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step1',
@@ -11,33 +11,60 @@ import { CommonModule } from '@angular/common';
   imports: [[CommonModule, ReactiveFormsModule]], // Inclua os módulos necessários
 })
 export class Step1Component implements OnInit {
+  @Output() next = new EventEmitter<void>(); // Certifique-se de que está emitindo corretamente
   discountForm: FormGroup;
+  maxAlunos = 2; // Limite de adições
+  alunoCount = 1; // Inicialmente há um aluno
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.discountForm = this.fb.group({
       interview: ['', Validators.required],
       sibling: ['', Validators.required],
       responsavel: ['', Validators.required],
       cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
-      nome1: ['', Validators.required],
-      serie1: ['', Validators.required],
-      dn1: ['', Validators.required],
-      colegio1: ['', Validators.required],
-      nome2: ['', Validators.required],
-      serie2: ['', Validators.required],
-      dn2: ['', Validators.required],
-      colegio2: ['', Validators.required]
+      alunos: this.fb.array([this.createAluno()]) // Inicializa com um aluno
     });
   }
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
-    if (this.discountForm.valid) {
-      console.log(this.discountForm.value);
-      // Implementar lógica para enviar o formulário
+  createAluno(): FormGroup {
+    return this.fb.group({
+      nome: ['', Validators.required],
+      serie: ['', Validators.required],
+      dn: ['', Validators.required],
+      colegio: ['', Validators.required]
+    });
+  }
+
+  get alunos(): FormArray {
+    return this.discountForm.get('alunos') as FormArray;
+  }
+
+
+  addAluno(): void {
+    if (this.alunoCount < this.maxAlunos) {
+      this.alunos.push(this.createAluno());
+      this.alunoCount++;
     } else {
-      console.log('Formulário inválido');
+      alert('Você pode adicionar no máximo 2 alunos.');
     }
   }
+
+
+ // addAluno(): void {
+  //  this.alunos.push(this.createAluno());
+ // }
+
+ onNext(): void {
+
+  console.log('Formulário válido:', this.discountForm.valid);
+  console.log('Estado do Formulário:', this.discountForm.value);
+  
+  if (this.discountForm.valid) {
+    this.router.navigate(['/step2']); // Navega para a próxima página
+  } else {
+    console.log('Formulário inválido');
+  }
+}
 }

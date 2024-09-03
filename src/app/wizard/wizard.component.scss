@@ -1,0 +1,73 @@
+/* Estilo do contêiner principal do wizard */
+.wizard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para os títulos das etapas */
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para os botões de navegação */
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilo para o botão de 'Próxima Página' */
+  button.next {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button.next:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para o botão de 'Página Anterior' */
+  button.previous {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  button.previous:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Estilo para o botão de 'Finalizar' */
+  button.finish {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  button.finish:hover {
+    background-color: #218838;
+  }
+  
+  /* Estilos responsivos para melhorar a usabilidade em dispositivos menores */
+  @media (max-width: 600px) {
+    .wizard-container {
+      padding: 10px;
+    }
+  
+    button {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  

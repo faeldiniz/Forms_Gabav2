@@ -1,5 +1,5 @@
 .form-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -12,8 +12,19 @@
   margin-bottom: 20px;
 }
 
-.form-group {
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-group:last-child {
+  margin-right: 0;
 }
 
 .form-group label {
@@ -24,29 +35,88 @@
 
 .form-group input[type="text"],
 .form-group input[type="date"] {
-  width: calc(100% - 10px);
+  width: 100%;
   padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .form-group input[type="radio"] {
   margin-right: 10px;
+  align-items: center;
 }
 
-button {
+//button {
+  //display: block;
+  //width: 50%;
+  //padding: 10px;
+  //background-color: #007bff;
+ // color: white;
+  //border: none;
+  //border-radius: 5px;
+  //cursor: pointer;
+//}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.radio-group {
+  display: flex;
+  align-items: center; /* Alinha verticalmente os inputs */
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 10px; /* Espaçamento entre os inputs */
+}
+
+.radio-group label {
+  margin-right: 20px; /* Espaçamento entre o input e o texto do rótulo */
+}
+
+//.button-add{
+  //align-items: center;
+  //display: flex;
+ // background-color: #007bff;
+ // border: none;
+ // border-radius: 5px;
+ //}
+
+
+/* Estilos para o botão de adicionar aluno */
+.add-aluno-btn {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #28a745; /* Cor de fundo verde para adicionar */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Espaço abaixo do botão */
+}
+
+.add-aluno-btn:hover {
+  background-color: #218838; /* Cor de fundo verde escuro para hover */
+}
+
+/* Contêiner para o botão de enviar */
+.submit-container {
+  display: flex;
+  justify-content:flex-end; /* Alinha o botão à direita */
+}
+
+/* Estilos para o botão de enviar */
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #007bff; /* Cor de fundo azul para enviar */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.submit-btn:hover {
+  background-color: #0056b3; /* Cor de fundo azul escuro para hover */
 }

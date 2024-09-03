@@ -1,0 +1,36 @@
+.button-step2-left {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .button-step2-rigth { 
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .next-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor de fundo azul para enviar */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button {
+    margin: 10px;
+  }
+  .input-box label {
+    color: #000;
+  }
+
+  .step2-container {
+    position: relative;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  background: #FFF;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }

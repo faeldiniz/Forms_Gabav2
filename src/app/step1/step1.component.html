@@ -1,9 +1,10 @@
+<!-- step1.component.html -->
 <div class="form-container">
   <h2>FICHA DE SOLICITAÇÃO DE DESCONTO – 2025</h2>
-  <form [formGroup]="discountForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="discountForm" (ngSubmit)="onNext()">
     <div class="form-group">
       <label>1. O ESTUDANTE E O RESPONSÁVEL LEGAL PASSARAM POR ENTREVISTA COM A COORDENAÇÃO?</label>
-      <div>
+      <div class="radio-group">
         <input type="radio" formControlName="interview" value="Sim" id="interviewSim" />
         <label for="interviewSim">SIM</label>
         <input type="radio" formControlName="interview" value="Não" id="interviewNao" />
@@ -13,7 +14,7 @@
 
     <div class="form-group">
       <label>2. ALUNO NOVO COM IRMÃO(S) NO COLÉGIO?</label>
-      <div>
+      <div class="radio-group">
         <input type="radio" formControlName="sibling" value="Sim" id="siblingSim" />
         <label for="siblingSim">SIM</label>
         <input type="radio" formControlName="sibling" value="Não" id="siblingNao" />
@@ -21,41 +22,43 @@
       </div>
     </div>
 
+    <div>
+      <h3>DADOS DO(A) RESPONSÁVEL FINANCEIRO</h3>
+    </div>
+
     <div class="form-group">
-      <label for="responsavel">Eu,</label>
+      <label for="responsavel">NOME</label>
       <input type="text" formControlName="responsavel" id="responsavel" />
-      <label for="cpf">, portador (a) do CPF:</label>
+      <label for="cpf">CPF</label>
       <input type="text" formControlName="cpf" id="cpf" />
     </div>
 
-    <div class="form-group">
-      <label>Nome:</label>
-      <input type="text" formControlName="nome1" />
-      <label>Ano/Série que irá cursar em 2025:</label>
-      <input type="text" formControlName="serie1" />
-      <label for="dn1">DN:</label>
-      <input type="date" formControlName="dn1" id="dn1" />
+    <div>
+      <h3>DADOS DO ALUNO(A)</h3>
     </div>
 
-    <div class="form-group">
-      <label>Colégio em que estuda:</label>
-      <input type="text" formControlName="colegio1" />
+    <div formArrayName="alunos">
+      <div *ngFor="let aluno of alunos.controls; let i = index" [formGroupName]="i" class="form-group">
+        <label>Nome:</label>
+        <input type="text" formControlName="nome" />
+        <label>Ano/Série que irá cursar em 2025:</label>
+        <input type="text" formControlName="serie" />
+        <label>Data de Nascimento:</label>
+        <input type="date" formControlName="dn" />
+        <label>Colégio em que estuda:</label>
+        <input type="text" formControlName="colegio" />
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Nome:</label>
-      <input type="text" formControlName="nome2" />
-      <label>Ano/Série que irá cursar em 2025:</label>
-      <input type="text" formControlName="serie2" />
-      <label for="dn2">DN:</label>
-      <input type="date" formControlName="dn2" id="dn2" />
+        <button type="button" class="add-aluno-btn" (click)="addAluno()">Adicionar mais um Aluno</button>
+      
+    
+    <div class="submit-container">
+      <button type="button" class="submit-btn" (click)="onNext()">Próxima</button>
+    
     </div>
 
-    <div class="form-group">
-      <label>Colégio em que estuda:</label>
-      <input type="text" formControlName="colegio2" />
-    </div>
 
-    <button type="submit">Enviar</button>
+    
   </form>
 </div>

@@ -1,1 +1,63 @@
-<p>step2 works!</p>
+<div class="step2-container">
+  <h2>DADOS PESSOAIS DOS RESPONSÁVEIS</h2>
+  <!-- Campos e lógica do Step 2 -->
+
+  <div class="input-box">
+    <label>Nome completo</label>
+    <input type="text" name="nome" placeholder="Digite seu nome" required="" >
+</div>
+
+<div class="column">
+      
+  <div class="input-box">
+    <label>E-mail</label>
+    <input type="email" name="email" placeholder="Digite seu e-mail" required="" >
+  </div>
+
+  <div class="input-box">
+    <label>Telefone</label>
+    <input type="text" name="telefone" placeholder="Digite seu telefone" required="">
+  </div>
+
+</div>
+
+
+
+
+  <!-- <div class="">
+    <label for="responsavel">NOME</label>
+    <input type="text" formControlName="responsavel" id="responsavel" />
+    <label for="cpf">CPF</label>
+    <input type="text" formControlName="cpf" id="cpf" />
+    <label>Data de Nascimento:</label>
+    <input type="date" formControlName="dn" />
+    <label for="estadocivil" class="text">Estado civil</label>
+    <select name="estadocivil" class="dropdown" required>  
+        <option selected disabled class="form_select_option" value="">Selecione</option>
+        <option value="Solteiro" class="form_select_option">Solteiro(a)</option>
+        <option value="Casado" class="form_select_option">Casado(a) </option>
+        <option value="Divorciado" class="form_select_option">Divorciado(a)</option>                    
+        <option value="Viúvo" class="form_select_option">Viúvo(a)</option>                    
+    </select>
+  </div> -->
+
+
+
+
+
+
+
+
+
+  <div class="button-step2-rigth">
+    <button type="button" class="next-btn" (click)="goToNext()">Próxima Página</button>
+
+  </div>
+
+  <div class="button-step2-left">
+    <!-- Botões de navegação -->
+    <button (click)="goToPrevious()">Página Anterior</button>
+
+  </div>
+
+</div>
