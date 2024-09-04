@@ -1,70 +1,82 @@
 <div class="container">
 
-<div class="step2-container">
-  <div class="form-wrapper">
-    <div class="title">
-      <h2>DADOS PESSOAIS DOS RESPONSÁVEIS</h2>
-    </div>
+  <div class="step2-container">
 
-    <div class="input-box">
-      <label>Nome completo</label>
-      <input type="text" name="nome" placeholder="Digite seu nome" required>
-    </div>
+    <form [formGroup]="discountForm" (ngSubmit)="onNext()">
+      <div class="form-wrapper">
+        <div class="title">
+          <h2>DADOS PESSOAIS DOS RESPONSÁVEIS</h2>
+        </div>
 
-    <div class="column">
-      <div class="input-box">
-        <label>E-mail</label>
-        <input type="email" name="email" placeholder="Digite seu e-mail" required>
-      </div>
+        <!-- Div dos dados pessoais!! -->
+        <div formArrayName="responsavel">
+          <div *ngFor="let responsavel of responsavel.controls; let i = index" [formGroupName]="i" class="form-group">
+            <div class="input-box">
+              <label>Nome completo</label>
+              <input type="text" formControlName="nome" placeholder="Digite seu nome" required>
+            </div>
 
-      <div class="input-box">
-        <label>Telefone</label>
-        <input type="text" name="telefone" placeholder="Digite seu telefone" required>
-      </div>
-    </div>
+            <div class="column">
+              <div class="input-box">
+                <label>E-mail</label>
+                <input type="email" formControlName="email" placeholder="Digite seu e-mail" required>
+              </div>
 
-    <div class="work-box">
-      <label>Trabalha?</label>
-      <div class="work-option">
-        <div class="work">
-          <input type="radio" name="work" value="sim" id="work-sim">
-          <label for="work-sim">Sim</label>
-          <input type="radio" name="work" value="não" id="work-nao">
-          <label for="work-nao">Não</label>
-          <input type="radio" name="work" value="desempregado" id="work-desempregado">
-          <label for="work-desempregado">Desempregado (a)/Há quanto tempo?</label>
-          <input type="text" name="desempregado" placeholder="">
+              <div class="input-box">
+                <label>Telefone</label>
+                <input type="number" formControlName="telefone" placeholder="Digite seu telefone" required>
+              </div>
+            </div>
+
+            <div class="work-box">
+              <label>Trabalha?</label>
+              <div class="work-option">
+                <div class="work">
+                  <input type="radio" formControlName="work" value="sim" id="work-sim">
+                  <label for="work-sim">Sim</label>
+                  <input type="radio" formControlName="work" value="não" id="work-nao">
+                  <label for="work-nao">Não</label>
+                  <input type="radio" formControlName="work" value="desempregado" id="work-desempregado">
+                  <label for="work-desempregado">Desempregado (a)/Há quanto tempo?</label>
+                  <input type="text" formControlName="desempregado" placeholder="">
+                </div>
+              </div>
+
+              <div class="input-box empresa">
+                <label>Nome da Empresa</label>
+                <input type="text" formControlName="empresa" placeholder="Digite o nome da empresa">
+              </div>
+            </div>
+
+            <div class="occupation-income">
+              <div class="input-box">
+                <label>Ocupação</label>
+                <input type="text" formControlName="ocupação" placeholder="Digite sua ocupação">
+              </div>
+
+              <div class="input-box">
+                <label>Renda Mensal Bruta</label>
+                <input type="number" formControlName="salario" placeholder="Digite sua renda">
+              </div>
+            </div>
+
+            <div class="input-box">
+              <label for="file-upload" class="file-label">Anexar Comprovante:</label>
+              <input type="file" id="file-upload" class="file-input" accept=".pdf, .jpg, .jpeg, .png" />
+              <small>Somente arquivos PDF, JPG e PNG são permitidos.</small>
+            </div>
+
+          </div>
+          <div>
+            <button type="button" class="add-aluno-btn" (click)="addResponsavel()">Adicionar mais um Responsavel</button>
+          </div>
+
+          <div class="button-container">
+            <button class="previous-button">Página Anterior</button>
+            <button class="next-button">Próxima Página</button>
+          </div>
         </div>
       </div>
-
-      <div class="input-box empresa">
-        <label>Nome da Empresa</label>
-        <input type="text" name="empresa" placeholder="Digite o nome da empresa">
-      </div>
-    </div>
-
-    <div class="occupation-income">
-      <div class="input-box">
-        <label>Ocupação</label>
-        <input type="text" name="ocupação" placeholder="Digite sua ocupação">
-      </div>
-
-      <div class="input-box">
-        <label>Renda Mensal Bruta</label>
-        <input type="number" name="salario" placeholder="Digite sua renda">
-      </div>
-    </div>
-
-    <div class="input-box">
-      <label for="file-upload" class="file-label">Anexar Comprovante:</label>
-      <input type="file" id="file-upload" class="file-input" accept=".pdf, .jpg, .jpeg, .png" />
-      <small>Somente arquivos PDF, JPG e PNG são permitidos.</small>
-    </div>
-
-    <div class="button-container">
-      <button class="previous-button">Página Anterior</button>
-      <button class="next-button">Próxima Página</button>
-    </div>
+    </form>
   </div>
-</div>
 </div>
