@@ -1,10 +1,21 @@
+/* Container principal com fundo gradiente */
+.container {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}
+
 .form-container {
-  max-width: 800px;
-  margin: auto;
+  background: #fff;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
 }
 
 .form-container h2 {
@@ -119,4 +130,20 @@ button:hover {
 
 .submit-btn:hover {
   background-color: #0056b3; /* Cor de fundo azul escuro para hover */
+}
+
+/* Estilos responsivos para telas menores */
+@media (max-width: 600px) {
+  .step2-container {
+    padding: 15px;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

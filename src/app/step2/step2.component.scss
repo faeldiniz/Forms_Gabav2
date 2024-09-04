@@ -1,36 +1,149 @@
-.button-step2-left {
-    display: flex;
-    justify-content: flex-start;
-  }
+/* Container principal com fundo gradiente */
+.container {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}
 
-  .button-step2-rigth { 
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .next-btn {
-    padding: 10px 20px;
-    background-color: #007bff; /* Cor de fundo azul para enviar */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  button {
-    margin: 10px;
-  }
-  .input-box label {
-    color: #000;
-  }
-
-  .step2-container {
-    position: relative;
-  max-width: 500px;
+.step2-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  margin: auto;
-  background: #FFF;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+/* Cabeçalho do formulário */
+.title h2 {
+  margin: 0;
+  text-align: center;
+  color: #333;
+}
+
+/* Estilização dos campos de input */
+.input-box {
+  margin-bottom: 20px;
+}
+
+.input-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.input-box input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* Configuração das opções de trabalho */
+.work-box {
+  margin-bottom: 20px;
+}
+
+.work-option {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.work {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.work label {
+  margin-left: 5px;
+}
+
+// /* Responsividade para campos lado a lado */
+// .column {
+//   display: flex;
+//   gap: 10px;
+//   flex-wrap: wrap;
+// }
+
+// .column .input-box {
+//   flex: 1;
+//   min-width: 150px;
+// }
+
+/* Posicionamento do campo "Nome da Empresa" abaixo de "Trabalha?" */
+.input-box.empresa {
+  margin-top: 10px;
+  flex: 1 1 100%;
+}
+
+/* Campos de Ocupação e Renda alinhados lado a lado */
+.occupation-income {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.occupation-income .input-box {
+  flex: 1;
+}
+
+/* Estilização do botão e input de arquivos */
+.file-label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.file-input {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Texto pequeno para arquivos suportados */
+small {
+  color: #888;
+  font-size: 12px;
+}
+
+/* Estilo para os botões */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #ddd;
+}
+
+/* Estilos responsivos para telas menores */
+@media (max-width: 600px) {
+  .step2-container {
+    padding: 15px;
   }
+
+  .column {
+    flex-direction: column;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

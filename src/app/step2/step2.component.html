@@ -1,63 +1,70 @@
+<div class="container">
+
 <div class="step2-container">
-  <h2>DADOS PESSOAIS DOS RESPONSÁVEIS</h2>
-  <!-- Campos e lógica do Step 2 -->
+  <div class="form-wrapper">
+    <div class="title">
+      <h2>DADOS PESSOAIS DOS RESPONSÁVEIS</h2>
+    </div>
 
-  <div class="input-box">
-    <label>Nome completo</label>
-    <input type="text" name="nome" placeholder="Digite seu nome" required="" >
+    <div class="input-box">
+      <label>Nome completo</label>
+      <input type="text" name="nome" placeholder="Digite seu nome" required>
+    </div>
+
+    <div class="column">
+      <div class="input-box">
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+
+      <div class="input-box">
+        <label>Telefone</label>
+        <input type="text" name="telefone" placeholder="Digite seu telefone" required>
+      </div>
+    </div>
+
+    <div class="work-box">
+      <label>Trabalha?</label>
+      <div class="work-option">
+        <div class="work">
+          <input type="radio" name="work" value="sim" id="work-sim">
+          <label for="work-sim">Sim</label>
+          <input type="radio" name="work" value="não" id="work-nao">
+          <label for="work-nao">Não</label>
+          <input type="radio" name="work" value="desempregado" id="work-desempregado">
+          <label for="work-desempregado">Desempregado (a)/Há quanto tempo?</label>
+          <input type="text" name="desempregado" placeholder="">
+        </div>
+      </div>
+
+      <div class="input-box empresa">
+        <label>Nome da Empresa</label>
+        <input type="text" name="empresa" placeholder="Digite o nome da empresa">
+      </div>
+    </div>
+
+    <div class="occupation-income">
+      <div class="input-box">
+        <label>Ocupação</label>
+        <input type="text" name="ocupação" placeholder="Digite sua ocupação">
+      </div>
+
+      <div class="input-box">
+        <label>Renda Mensal Bruta</label>
+        <input type="number" name="salario" placeholder="Digite sua renda">
+      </div>
+    </div>
+
+    <div class="input-box">
+      <label for="file-upload" class="file-label">Anexar Comprovante:</label>
+      <input type="file" id="file-upload" class="file-input" accept=".pdf, .jpg, .jpeg, .png" />
+      <small>Somente arquivos PDF, JPG e PNG são permitidos.</small>
+    </div>
+
+    <div class="button-container">
+      <button class="previous-button">Página Anterior</button>
+      <button class="next-button">Próxima Página</button>
+    </div>
+  </div>
 </div>
-
-<div class="column">
-      
-  <div class="input-box">
-    <label>E-mail</label>
-    <input type="email" name="email" placeholder="Digite seu e-mail" required="" >
-  </div>
-
-  <div class="input-box">
-    <label>Telefone</label>
-    <input type="text" name="telefone" placeholder="Digite seu telefone" required="">
-  </div>
-
-</div>
-
-
-
-
-  <!-- <div class="">
-    <label for="responsavel">NOME</label>
-    <input type="text" formControlName="responsavel" id="responsavel" />
-    <label for="cpf">CPF</label>
-    <input type="text" formControlName="cpf" id="cpf" />
-    <label>Data de Nascimento:</label>
-    <input type="date" formControlName="dn" />
-    <label for="estadocivil" class="text">Estado civil</label>
-    <select name="estadocivil" class="dropdown" required>  
-        <option selected disabled class="form_select_option" value="">Selecione</option>
-        <option value="Solteiro" class="form_select_option">Solteiro(a)</option>
-        <option value="Casado" class="form_select_option">Casado(a) </option>
-        <option value="Divorciado" class="form_select_option">Divorciado(a)</option>                    
-        <option value="Viúvo" class="form_select_option">Viúvo(a)</option>                    
-    </select>
-  </div> -->
-
-
-
-
-
-
-
-
-
-  <div class="button-step2-rigth">
-    <button type="button" class="next-btn" (click)="goToNext()">Próxima Página</button>
-
-  </div>
-
-  <div class="button-step2-left">
-    <!-- Botões de navegação -->
-    <button (click)="goToPrevious()">Página Anterior</button>
-
-  </div>
-
 </div>
