@@ -9,8 +9,8 @@
         </div>
 
         <!-- Div dos dados pessoais!! -->
-        <div formArrayName="responsavel">
-          <div *ngFor="let responsavel of responsavel.controls; let i = index" [formGroupName]="i" class="form-group">
+        <div formArrayName="responsaveis">
+          <div *ngFor="let responsavel of responsaveis.controls; let i = index" [formGroupName]="i" class="form-group">
             <div class="input-box">
               <label>Nome completo</label>
               <input type="text" formControlName="nome" placeholder="Digite seu nome" required>
@@ -68,12 +68,13 @@
 
           </div>
           <div>
-            <button type="button" class="add-aluno-btn" (click)="addResponsavel()">Adicionar mais um Responsavel</button>
+            <button type="button" class="add-aluno-btn" (click)="addResponsavel()">Adicionar mais um
+              Responsavel</button>
           </div>
 
           <div class="button-container">
-            <button class="previous-button">Página Anterior</button>
-            <button class="next-button">Próxima Página</button>
+            <button type="button" class="previous-button" (click)="goToPrevious()">Página Anterior</button>
+            <button type="submit" class="next-button">Próxima Página</button>
           </div>
         </div>
       </div>

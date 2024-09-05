@@ -8,79 +8,91 @@ import { Router } from '@angular/router';
   standalone: true, // Tornando o componente standalone
   imports: [[CommonModule, ReactiveFormsModule, FormsModule]], // Inclua os módulos necessários
   templateUrl: './step2.component.html',
-  styleUrl: './step2.component.scss'
+  styleUrls: ['./step2.component.scss']
 })
 
 export class Step2Component implements OnInit {
 
   @Output() next = new EventEmitter<void>(); // Certifique-se de que está emitindo corretamente
   discountForm: FormGroup;
-  maxResponsavel = 2; // Limite de adições
-  alunoCount = 1; // Inicialmente há um aluno
+  maxResponsaveis = 2; // Limite de adições
+  responsavelCount = 1; // Inicialmente há um responsavel
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.discountForm = this.fb.group({
       interview: ['', Validators.required],
       sibling: ['', Validators.required],
-      responsavel: ['', Validators.required],
-      cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
-      responsaveis: this.fb.array([this.createResponsavel()]) // Inicializa com um aluno
+      responsaveis: this.fb.array([this.createResponsavel()]) // Inicializa com um responsavel
     });
   }
+
+  // constructor(private fb: FormBuilder, private router: Router) {
+  //   this.discountForm = this.fb.group({
+  //     interview: ['', Validators.required],
+  //     sibling: ['', Validators.required],
+  //     responsavel: ['', Validators.required],
+  //     //cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
+  //     responsaveis: this.fb.array([this.createResponsavel()]) // Inicializa com um responsavel
+  //   });
+  // }
 
   // @Output() previous = new EventEmitter<void>(); // Emite evento para página anterior
   // @Output() next = new EventEmitter<void>(); // Emite evento para próxima página
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.discountForm); // Verifique o status do formulário no console 
+  }
 
   createResponsavel(): FormGroup {
     return this.fb.group({
       nome: ['', Validators.required],
-      serie: ['', Validators.required],
-      dn: ['', Validators.required],
-      colegio: ['', Validators.required]
+      email: ['', Validators.required],
+      telefone: ['', Validators.required],
+      work: ['', Validators.required],  // Adiciona o controle para 'work'
+      desempregado: [''],               // Controle para o tempo desempregado
+      empresa: [''],                    // Controle para o nome da empresa
+      ocupação: [''],                   // Controle para a ocupação
+      salario: ['']                     // Controle para o salário
     });
   }
 
-  get responsavel(): FormArray {
-    return this.discountForm.get('responsavel') as FormArray;
+  get responsaveis(): FormArray {
+    return this.discountForm.get('responsaveis') as FormArray;
   }
 
   addResponsavel(): void {
-    if(this.alunoCount < this.maxResponsavel) {
-    this.responsavel.push(this.createResponsavel());
-    this.alunoCount++;
-  } else {
-    alert('Você pode adicionar no máximo 2 responsaveis.');
+    if (this.responsavelCount < this.maxResponsaveis) {
+      this.responsaveis.push(this.createResponsavel());
+      this.responsavelCount++;
+    } else {
+      alert('Você pode adicionar no máximo 2 responsaveis.');
+    }
   }
-}
 
-onNext(): void {
 
-  console.log('Formulário válido:', this.discountForm.valid);
-  console.log('Estado do Formulário:', this.discountForm.value);
-  
-  if (this.discountForm.valid) {
-    this.router.navigate(['/step3']); // Navega para a próxima página
-  } else {
-    console.log('Formulário inválido');
+  //Funções para os botões de navegação
+  goToPrevious(): void {
+    // Navegar para a página anterior ou emitir um evento se estiver usando um sistema de navegação com rotas
+    console.log('Indo para a página anterior');
+    this.router.navigate(['/step1']); // Substitua '/step1' pela rota correta
   }
+
+  onNext(): void {
+    if (this.discountForm.valid) {
+      console.log('Formulário válido:', this.discountForm.valid);
+      console.log('Estado do Formulário:', this.discountForm.value);
+      this.router.navigate(['/step3']); // Substitua '/step3' pela rota correta
+    } else {
+      console.log('Formulário inválido');
+    }
+  }
+
 }
 
-// // Funções para os botões de navegação
-// goToPrevious(): void {
-//   this.previous.emit();
-// }
-
-// goToNext(): void {
-//   this.next.emit();
-// }
-}
-  
 
 
 
 
- 
+
 
 

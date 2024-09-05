@@ -10,8 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, Step1Component, Step2Component, Step3Component, ReactiveFormsModule], // Inclua o CommonModule para usar as diretivas do Angular
   templateUrl: './wizard.component.html',
-  styleUrl: './wizard.component.scss'
-  
+  styleUrls: ['./wizard.component.scss']
+
 })
 export class WizardComponent {
 
@@ -29,13 +29,6 @@ export class WizardComponent {
     }
   }
 
-  //goToNextStep() {
-    ///this.currentStep++;
-  //}
-
-  //goToPreviousStep() {
-    //this.currentStep--;
-  //}
 
   finish() {
     // Finalizar o formulário e enviar os dados

@@ -26,7 +26,7 @@ export class Step1Component implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   createAluno(): FormGroup {
     return this.fb.group({
@@ -52,19 +52,19 @@ export class Step1Component implements OnInit {
   }
 
 
- // addAluno(): void {
+  // addAluno(): void {
   //  this.alunos.push(this.createAluno());
- // }
+  // }
 
- onNext(): void {
+  onNext(): void {
 
-  console.log('Formulário válido:', this.discountForm.valid);
-  console.log('Estado do Formulário:', this.discountForm.value);
-  
-  if (this.discountForm.valid) {
-    this.router.navigate(['/step2']); // Navega para a próxima página
-  } else {
-    console.log('Formulário inválido');
+    console.log('Formulário válido:', this.discountForm.valid);
+    console.log('Estado do Formulário:', this.discountForm.value);
+
+    if (this.discountForm.valid) {
+      this.router.navigate(['/step2']); // Navega para a próxima página
+    } else {
+      console.log('Formulário inválido');
+    }
   }
-}
 }
