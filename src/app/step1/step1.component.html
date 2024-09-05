@@ -6,20 +6,20 @@
       <div class="form-group">
         <label>1. O ESTUDANTE E O RESPONSÁVEL LEGAL PASSARAM POR ENTREVISTA COM A COORDENAÇÃO?</label>
         <div class="radio-group">
-          <input type="radio" formControlName="interview" value="Sim" id="interviewSim" />
-          <label for="interviewSim">SIM</label>
-          <input type="radio" formControlName="interview" value="Não" id="interviewNao" />
-          <label for="interviewNao">NÃO</label>
+          <input type="radio" formControlName="entrevista" value="Sim" id="interviewSim" />
+          <label for="entrevistaSim">SIM</label>
+          <input type="radio" formControlName="entrevista" value="Não" id="interviewNao" />
+          <label for="entrevistaNao">NÃO</label>
         </div>
       </div>
 
       <div class="form-group">
         <label>2. ALUNO NOVO COM IRMÃO(S) NO COLÉGIO?</label>
         <div class="radio-group">
-          <input type="radio" formControlName="sibling" value="Sim" id="siblingSim" />
-          <label for="siblingSim">SIM</label>
-          <input type="radio" formControlName="sibling" value="Não" id="siblingNao" />
-          <label for="siblingNao">NÃO</label>
+          <input type="radio" formControlName="alunoirmao" value="Sim" id="siblingSim" />
+          <label for="alunoirmaoSim">SIM</label>
+          <input type="radio" formControlName="alunoirmao" value="Não" id="siblingNao" />
+          <label for="alunoirmaoNao">NÃO</label>
         </div>
       </div>
 
@@ -29,9 +29,9 @@
 
       <div class="form-group">
         <label for="responsavel">NOME</label>
-        <input type="text" formControlName="responsavel" id="responsavel" />
+        <input type="text" formControlName="respfin" id="responsavel" />
         <label for="cpf">CPF</label>
-        <input type="text" formControlName="cpf" id="cpf" />
+        <input type="text" formControlName="cpfrf" id="cpf" />
       </div>
 
       <div>
@@ -41,11 +41,11 @@
       <div formArrayName="alunos">
         <div *ngFor="let aluno of alunos.controls; let i = index" [formGroupName]="i" class="form-group">
           <label>Nome:</label>
-          <input type="text" formControlName="nome" />
+          <input type="text" formControlName="nomealuno" />
           <label>Ano/Série que irá cursar em 2025:</label>
-          <input type="text" formControlName="serie" />
+          <input type="text" formControlName="seriealuno" />
           <label>Data de Nascimento:</label>
-          <input type="date" formControlName="dn" />
+          <input type="date" formControlName="dnaluno" />
           <label>Colégio em que estuda:</label>
           <input type="text" formControlName="colegio" />
         </div>

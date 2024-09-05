@@ -13,55 +13,67 @@
           <div *ngFor="let responsavel of responsaveis.controls; let i = index" [formGroupName]="i" class="form-group">
             <div class="input-box">
               <label>Nome completo</label>
-              <input type="text" formControlName="nome" placeholder="Digite seu nome" required>
+              <input type="text" formControlName="nomeresp" placeholder="Digite seu nome" required>
+              <label>Estado Civil</label>
+              <select name="estado-civil" id="estado-civil">
+                <option value="">Solteiro</option>
+                <option value="">Casado</option>
+                <option value="">Viuvo</option>
+              </select>
             </div>
 
             <div class="column">
               <div class="input-box">
                 <label>E-mail</label>
-                <input type="email" formControlName="email" placeholder="Digite seu e-mail" required>
+                <input type="email" formControlName="emailresp" placeholder="Digite seu e-mail" required>
               </div>
 
               <div class="input-box">
                 <label>Telefone</label>
-                <input type="number" formControlName="telefone" placeholder="Digite seu telefone" required>
+                <input type="number" formControlName="telefoneresp" placeholder="Digite seu telefone" required>
               </div>
             </div>
 
+            <!-- [formGroup]="responsaveis.controls[i]" -->
             <div class="work-box">
               <label>Trabalha?</label>
               <div class="work-option">
                 <div class="work">
-                  <input type="radio" formControlName="work" value="sim" id="work-sim">
-                  <label for="work-sim">Sim</label>
-                  <input type="radio" formControlName="work" value="não" id="work-nao">
-                  <label for="work-nao">Não</label>
-                  <input type="radio" formControlName="work" value="desempregado" id="work-desempregado">
-                  <label for="work-desempregado">Desempregado (a)/Há quanto tempo?</label>
-                  <input type="text" formControlName="desempregado" placeholder="">
+                  <input type="radio" formControlName="workresp" value="sim" id="work-sim-{{i}}">
+                  <label for="work-sim-{{i}}">Sim</label>
+                  <input type="radio" formControlName="workresp" value="não" id="work-nao-{{i}}">
+                  <label for="work-nao-{{i}}">Não</label>
+                  <!-- <input type="radio" formControlName="work" value="desempregado" id="work-desempregado-{{i}}"> -->
+                  <label for="work-desempregado-{{i}}">Desempregado (a)/Há quanto tempo?</label>
+                  <input type="text" formControlName="desempregadoresp" placeholder="">
                 </div>
               </div>
 
+              <!-- *ngIf="responsaveis.at(i).get('work').value === 'desempregado'" class="input-box" -->
+              <!-- <div>
+                <input type="text" formControlName="desempregado" placeholder="">
+              </div> -->
+
               <div class="input-box empresa">
                 <label>Nome da Empresa</label>
-                <input type="text" formControlName="empresa" placeholder="Digite o nome da empresa">
+                <input type="text" formControlName="empresaresp" placeholder="Digite o nome da empresa">
               </div>
             </div>
 
             <div class="occupation-income">
               <div class="input-box">
                 <label>Ocupação</label>
-                <input type="text" formControlName="ocupação" placeholder="Digite sua ocupação">
+                <input type="text" formControlName="ocupaçãoresp" placeholder="Digite sua ocupação">
               </div>
 
               <div class="input-box">
                 <label>Renda Mensal Bruta</label>
-                <input type="number" formControlName="salario" placeholder="Digite sua renda">
+                <input type="number" formControlName="salarioresp" placeholder="Digite sua renda">
               </div>
             </div>
 
             <div class="input-box">
-              <label for="file-upload" class="file-label">Anexar Comprovante:</label>
+              <label for="file-upload" name="comprovante-renda" class="file-label">Anexar Comprovante:</label>
               <input type="file" id="file-upload" class="file-input" accept=".pdf, .jpg, .jpeg, .png" />
               <small>Somente arquivos PDF, JPG e PNG são permitidos.</small>
             </div>
@@ -75,9 +87,14 @@
           <div class="button-container">
             <button type="button" class="previous-button" (click)="goToPrevious()">Página Anterior</button>
             <button type="submit" class="next-button">Próxima Página</button>
+            <!-- <button type="submit" class="next-button">Próxima Página</button> -->
+            <!-- <button type="submit" class="next-button" (click)="onNext()">Próxima Página</button> -->
           </div>
+
+
         </div>
       </div>
+
     </form>
   </div>
 </div>

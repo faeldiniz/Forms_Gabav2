@@ -42,14 +42,16 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #555;
 }
 
 .form-group input[type="text"],
 .form-group input[type="date"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
 .form-group input[type="radio"] {
@@ -57,83 +59,22 @@
   align-items: center;
 }
 
-//button {
-//display: block;
-//width: 50%;
-//padding: 10px;
-//background-color: #007bff;
-// color: white;
-//border: none;
-//border-radius: 5px;
-//cursor: pointer;
-//}
-
 button:hover {
-  background-color: #0056b3;
+  background-color: #ddd;
 }
-
 
 .radio-group {
   display: flex;
   align-items: center;
-  /* Alinha verticalmente os inputs */
 }
 
 .radio-group input[type="radio"] {
   margin-right: 10px;
-  /* Espaçamento entre os inputs */
 }
 
 .radio-group label {
   margin-right: 20px;
-  /* Espaçamento entre o input e o texto do rótulo */
 }
-
-//.button-add{
-//align-items: center;
-//display: flex;
-// background-color: #007bff;
-// border: none;
-// border-radius: 5px;
-//}
-
-
-/* Estilos para o botão de adicionar aluno */
-// .add-aluno-btn {
-//   display: block;
-//   width: 100%;
-//   padding: 10px;
-//   background-color: #28a745; /* Cor de fundo verde para adicionar */
-//   color: white;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   margin-bottom: 15px; /* Espaço abaixo do botão */
-// }
-
-// .add-aluno-btn:hover {
-//   background-color: #218838; /* Cor de fundo verde escuro para hover */
-// }
-
-// /* Contêiner para o botão de enviar */
-// .submit-container {
-//   display: flex;
-//   justify-content:flex-end; /* Alinha o botão à direita */
-// }
-
-/* Estilos para o botão de enviar */
-// .submit-btn {
-//   padding: 10px 20px;
-//   background-color: #007bff; /* Cor de fundo azul para enviar */
-//   color: white;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-// }
-
-// .submit-btn:hover {
-//   background-color: #0056b3; /* Cor de fundo azul escuro para hover */
-// }
 
 .button-container {
   display: flex;

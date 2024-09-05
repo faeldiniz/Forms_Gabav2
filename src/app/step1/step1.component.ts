@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } fr
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-step1',
   templateUrl: './step1.component.html',
@@ -18,10 +19,10 @@ export class Step1Component implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.discountForm = this.fb.group({
-      interview: ['', Validators.required],
-      sibling: ['', Validators.required],
-      responsavel: ['', Validators.required],
-      cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
+      entrevista: ['', Validators.required],
+      alunoirmao: ['', Validators.required],
+      respfin: ['', Validators.required],
+      cpfrf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
       alunos: this.fb.array([this.createAluno()]) // Inicializa com um aluno
     });
   }
@@ -30,9 +31,9 @@ export class Step1Component implements OnInit {
 
   createAluno(): FormGroup {
     return this.fb.group({
-      nome: ['', Validators.required],
-      serie: ['', Validators.required],
-      dn: ['', Validators.required],
+      nomealuno: ['', Validators.required],
+      seriealuno: ['', Validators.required],
+      dnaluno: ['', Validators.required],
       colegio: ['', Validators.required]
     });
   }

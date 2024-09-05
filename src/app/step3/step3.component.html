@@ -1,17 +1,41 @@
 <div class="container">
 
   <div class="step3-container">
-    <h2>Step 3</h2>
-    <!-- Campos e lógica do Step 3 -->
-     
+    <h2>OUTRAS FONTES DE RENDA</h2>
+    <form [formGroup]="step3Form" (ngSubmit)="finishForm()">
+      <div class="income-source">
+        <label>Possui outras fontes de renda (Pensão, aposentadoria, aluguel, etc)?</label>
+        <div class="options">
+          <input type="radio" id="sim" formControlName="outrasRendas" value="sim">
+          <label for="sim">Sim</label>
+          <input type="radio" id="nao" formControlName="outrasRendas" value="nao">
+          <label for="nao">Não</label>
+        </div>
+        <label for="valorRenda">Valor recebido: R$</label>
+        <input id="valorRenda" type="number" formControlName="valorRenda" placeholder="Digite o valor">
+        <div class="input-box">
+          <label for="file-upload" class="file-label">Anexar comprovante:</label>
+          <input type="file" id="file-upload" formControlName="comprovante" class="file-input"
+            accept=".pdf, .jpg, .jpeg, .png">
+          <small>Somente arquivos PDF, JPG e PNG são permitidos.</small>
+        </div>
+      </div>
 
-<!-- Botões de navegação -->
-    <div class="button-container">
-      <button (click)="goToPrevious()">Página Anterior</button>
-      <button (click)="finishForm()">Finalizar</button>
-    </div>
+      <div class="request-reason">
+        <label for="motivos">DESCREVER RESUMIDAMENTE OS MOTIVOS DA SOLICITAÇÃO:</label>
+        <textarea id="motivos" formControlName="motivos" rows="5" placeholder="Digite os motivos"></textarea>
+      </div>
 
+      <p class="disclaimer">
+        Declaro, sob pena da lei, serem verdadeiros os dados, por mim, fornecidos nesta ficha e estou ciente de que a
+        não
+        veracidade das informações acarretará a anulação do pedido do desconto.
+      </p>
+
+      <div class="button-container">
+        <button type="button" (click)="goToPrevious()">Página Anterior</button>
+        <button type="submit">Finalizar</button>
+      </div>
+    </form>
   </div>
-
-
 </div>

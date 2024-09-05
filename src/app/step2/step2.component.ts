@@ -20,8 +20,8 @@ export class Step2Component implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.discountForm = this.fb.group({
-      interview: ['', Validators.required],
-      sibling: ['', Validators.required],
+       //interview: ['', Validators.required],
+       //sibling: ['', Validators.required],
       responsaveis: this.fb.array([this.createResponsavel()]) // Inicializa com um responsavel
     });
   }
@@ -45,14 +45,14 @@ export class Step2Component implements OnInit {
 
   createResponsavel(): FormGroup {
     return this.fb.group({
-      nome: ['', Validators.required],
-      email: ['', Validators.required],
-      telefone: ['', Validators.required],
-      work: ['', Validators.required],  // Adiciona o controle para 'work'
-      desempregado: [''],               // Controle para o tempo desempregado
-      empresa: [''],                    // Controle para o nome da empresa
-      ocupação: [''],                   // Controle para a ocupação
-      salario: ['']                     // Controle para o salário
+      nomeresp: ['', Validators.required],
+      emailresp: ['', Validators.required],
+      telefoneresp: ['', Validators.required],
+      workresp: ['', Validators.required],  // Adiciona o controle para 'work'
+      desempregadoresp: [''],               // Controle para o tempo desempregado
+      empresaresp: [''],                    // Controle para o nome da empresa
+      ocupaçãoresp: [''],                   // Controle para a ocupação
+      salarioresp: ['']                     // Controle para o salário
     });
   }
 
@@ -84,6 +84,7 @@ export class Step2Component implements OnInit {
       this.router.navigate(['/step3']); // Substitua '/step3' pela rota correta
     } else {
       console.log('Formulário inválido');
+      this.discountForm.markAllAsTouched(); // Marca todos os controles para mostrar os erros
     }
   }
 
